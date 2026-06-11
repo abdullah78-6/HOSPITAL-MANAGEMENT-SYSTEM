@@ -49,13 +49,16 @@ const Sidebar=({url})=>{
 
     }
     
-    return <div className="bg-[#618764]  h-screen text-[#273338] font-semibold">
+    return <div className="bg-[#618764]  h-screen text-[#273338] font-semibold overflow-y-auto p-4">
         {backendemail?<h1> WELCOME TO ADMI PANEL {backendemail.slice(0,1)}</h1>:<></>}
-        <ul className="flex justify-between items-center flex-col gap-10 text-xl capitalize mt-7">
+        <ul className="flex justify-between items-center flex-col gap-6 text-sm capitalize mt-7">
             <Link onClick={()=>dispatch(control.setnavbarclass("one"))}  to="/" className={` ${navbarclass=="one"?"bg-amber-500 hover:bg-amber-900 cursor-pointer p-2 rounded-2xl transition ease-in-out duration-200 text-white border-3 border-green-800":"bg-pink-800 hover:bg-pink-900 cursor-pointer p-2 rounded-2xl transition ease-in-out duration-200 text-white border-3 border-green-800"}`}>dashboard</Link>
-            <Link onClick={()=>dispatch(control.setnavbarclass("two"))} to="/add-departments" className={` ${navbarclass=="two"?"bg-amber-500 hover:bg-amber-900 cursor-pointer p-2 rounded-2xl transition ease-in-out duration-200 text-white border-3 border-green-800":"bg-pink-800 hover:bg-pink-900 cursor-pointer p-2 rounded-2xl transition ease-in-out duration-200 text-white border-3 border-green-800"}`}   >add departments</Link>
+            
+            <Link onClick={()=>dispatch(control.setnavbarclass("two"))} to="/add-departments" className={` ${navbarclass=="two"?"bg-amber-500 hover:bg-amber-900 cursor-pointer p-2 rounded-2xl transition ease-in-out duration-200 text-white border-3 border-green-800":"bg-pink-800 hover:bg-pink-900 cursor-pointer p-2 rounded-2xl transition ease-in-out duration-200 text-white border-3 border-green-800 w-35"}`}   >add departments</Link>
+            
             <Link onClick={()=>dispatch(control.setnavbarclass("three"))} to="/doctors" className={` ${navbarclass=="three"?"bg-amber-500 hover:bg-amber-900 cursor-pointer p-2 rounded-2xl transition ease-in-out duration-200 text-white border-3 border-green-800":"bg-pink-800 hover:bg-pink-900 cursor-pointer p-2 rounded-2xl transition ease-in-out duration-200 text-white border-3 border-green-800"}`}  >doctors</Link>
             <Link onClick={()=>dispatch(control.setnavbarclass("four"))} to="/appointments" className={` ${navbarclass=="four"?"bg-amber-500 hover:bg-amber-900 cursor-pointer p-2 rounded-2xl transition ease-in-out duration-200 text-white border-3 border-green-800":"bg-pink-800 hover:bg-pink-900 cursor-pointer p-2 rounded-2xl transition ease-in-out duration-200 text-white border-3 border-green-800"}`}  >appointments</Link>
+            <Link onClick={()=>dispatch(control.setnavbarclass("list"))} to="/list" className={` ${navbarclass=="list"?"bg-amber-500 hover:bg-amber-900 cursor-pointer p-2 rounded-2xl transition ease-in-out duration-200 text-white border-3 border-green-800":"bg-pink-800 hover:bg-pink-900 cursor-pointer p-2 rounded-2xl transition ease-in-out duration-200 text-white border-3 border-green-800"}`}  > patients lists </Link>
             <Link onClick={()=>dispatch(control.setnavbarclass("five"))} to="/add-patients" className={` ${navbarclass=="five"?"bg-amber-500 hover:bg-amber-900 cursor-pointer p-2 rounded-2xl transition ease-in-out duration-200 text-white border-3 border-green-800":"bg-pink-800 hover:bg-pink-900 cursor-pointer p-2 rounded-2xl transition ease-in-out duration-200 text-white border-3 border-green-800"}`}  >add patients </Link>
            {!backendemail? <Link to="/login" className="bg-blue-700 text-white p-3 rounded-3xl hover:bg-blue-900 transition ease-in-out duration-200" >LOGIN</Link>:<button className="bg-red-700 text-white p-3 rounded-3xl hover:bg-red-900 transition ease-in-out duration-200" onClick={Logout}>LOGOUT</button>}
         </ul>

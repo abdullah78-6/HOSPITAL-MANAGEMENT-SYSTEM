@@ -6,7 +6,18 @@ const adminslice=createSlice({
         logininfo:{
             email:"",
             password:""
-        }
+        },
+        patientdetails:{
+            name:"",
+            phone_no:"",
+            disease:"",
+            age:"",
+            admitdate:"",
+            bill:""
+
+
+        },
+        Illlist:[]
     },
     reducers:{
         setloginstatus(state,action){
@@ -21,6 +32,15 @@ const adminslice=createSlice({
         setlogininfo(state,action){
             const {name,value}=action.payload;
             state.logininfo[name]=value;
+        },
+        setpatientdetails(state,action){
+            const {name,value}=action.payload;
+            state.patientdetails[name]=value;
+        },
+        setIlllist(state,action){
+            state.Illlist=action.payload;
+            
+
         }
     }
 })

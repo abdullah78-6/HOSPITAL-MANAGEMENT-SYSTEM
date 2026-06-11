@@ -8,6 +8,7 @@ import Appointment from "./pages/appointments"
 import Addpatient from "./pages/add-patients"
 import { useSelector } from "react-redux"
 import Loginpopup from "./components/Loginpopup"
+import Patientlist from "./pages/patient-list"
 function App() {
   const loginstatus=useSelector(state=>state.main.loginstatus);
   const backendurl="http://localhost:5000"
@@ -22,7 +23,8 @@ function App() {
       <Route path="/add-departments" element={<Adddepartment/>}></Route>
       <Route path="/doctors" element={<Doctor/>}></Route>
       <Route path="/appointments" element={<Appointment/>}></Route>
-      <Route path="/add-patients" element={<Addpatient/>}></Route>
+      <Route path="/add-patients" element={<Addpatient url={backendurl}/>}></Route>
+      <Route path="/list" element={<Patientlist url={backendurl}/>}></Route>
       <Route path="/login" element={<Loginpopup url={backendurl}/>}></Route>
     </Routes>
     </div>
