@@ -29,7 +29,17 @@ const Patientlist=({url})=>{
 
     }
     const Delete=async(id)=>{
-      toast.error(id);
+      const response=await axios.delete(url+"/api/admin/del",{
+        data:{id:id},
+      withCredentials:true
+      })
+      if(response.data.status){
+        toast.success(response.data.message);
+        await Fetch();
+      }
+      else{
+        toast.error(response.data.message);
+      }
 
     }
 useEffect(()=>{
@@ -43,6 +53,7 @@ useEffect(()=>{
         <span className="text-pink-800">Patients List</span>
       </h1>
     </div>
+    {Illlist.length===0&&<h1 className="text-center  capitalize font-semibold text-red-800 text-2xl">list is empty</h1>}
 
     <div className="h-[75vh] overflow-y-auto pr-2">
       {Illlist.map((item, i) => (

@@ -16,11 +16,11 @@ function App() {
  
     <Navbar/>
     <hr/>
-     <div className="flex">
+     <div className=" flex">
     <Sidebar url={backendurl}/>
     <Routes>
       <Route path="/" element={<Dashboard/>}></Route>
-      <Route path="/add-departments" element={<Adddepartment/>}></Route>
+      <Route path="/add-departments" element={<Adddepartment url={backendurl}/>}></Route>
       <Route path="/doctors" element={<Doctor/>}></Route>
       <Route path="/appointments" element={<Appointment/>}></Route>
       <Route path="/add-patients" element={<Addpatient url={backendurl}/>}></Route>

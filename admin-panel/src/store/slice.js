@@ -17,6 +17,11 @@ const adminslice=createSlice({
 
 
         },
+        departments:{
+            department_name:"",
+            department_doctor:"",
+            department_details:""
+        },
         Illlist:[]
     },
     reducers:{
@@ -41,6 +46,10 @@ const adminslice=createSlice({
             state.Illlist=action.payload;
             
 
+        },
+        setdepartments(state,action){
+            const {name,value}=action.payload;
+            state.departments[name]=value;
         }
     }
 })

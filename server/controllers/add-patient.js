@@ -30,8 +30,20 @@ const Add=async(req,res)=>{
 }
 const Deletepatient=async(req,res)=>{
     try {
+        const {id}=req.body;
+        const patient=await patientmodel.findByIdAndDelete({_id:id});
+        if(patient){
+            return res.json({status:true,message:"DELETE SUCCESSFULLY"});
+        }
+        else{
+            return res.json({status:false,message:"DATA NOT DELETE"});
+        }
+        
+
         
     } catch (error) {
+        console.log(error);
+        res.json({status:false,message:"delete patient error"});
         
         
     }

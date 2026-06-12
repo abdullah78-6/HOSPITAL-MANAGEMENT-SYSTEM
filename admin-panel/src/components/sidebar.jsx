@@ -49,9 +49,24 @@ const Sidebar=({url})=>{
 
     }
     
-    return <div className="bg-[#618764]  h-screen text-[#273338] font-semibold overflow-y-auto p-4">
-        {backendemail?<h1> WELCOME TO ADMI PANEL {backendemail.slice(0,1)}</h1>:<></>}
-        <ul className="flex justify-between items-center flex-col gap-6 text-sm capitalize mt-7">
+    return <div className="bg-[#618764] w-64 min-h-screen text-[#273338] font-semibold overflow-y-auto p-4">
+        <div className="mt-4 bg-white/20 rounded-xl p-4">
+  {backendemail && (
+    <div className="flex items-center justify-between">
+      <div>
+        <p className="text-sm text-white/80">Welcome</p>
+        <h2 className="text-lg font-bold text-white">
+          Admin
+        </h2>
+      </div>
+
+      <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-pink-800 font-bold text-lg shadow-md">
+        {backendemail.slice(0, 1).toUpperCase()}
+      </div>
+    </div>
+  )}
+</div>
+        <ul className="flex justify-between items-center flex-col gap-6 text-sm capitalize mt-12">
             <Link onClick={()=>dispatch(control.setnavbarclass("one"))}  to="/" className={` ${navbarclass=="one"?"bg-amber-500 hover:bg-amber-900 cursor-pointer p-2 rounded-2xl transition ease-in-out duration-200 text-white border-3 border-green-800":"bg-pink-800 hover:bg-pink-900 cursor-pointer p-2 rounded-2xl transition ease-in-out duration-200 text-white border-3 border-green-800"}`}>dashboard</Link>
             
             <Link onClick={()=>dispatch(control.setnavbarclass("two"))} to="/add-departments" className={` ${navbarclass=="two"?"bg-amber-500 hover:bg-amber-900 cursor-pointer p-2 rounded-2xl transition ease-in-out duration-200 text-white border-3 border-green-800":"bg-pink-800 hover:bg-pink-900 cursor-pointer p-2 rounded-2xl transition ease-in-out duration-200 text-white border-3 border-green-800 w-35"}`}   >add departments</Link>
