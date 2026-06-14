@@ -10,6 +10,7 @@ const Adddepartment=({url})=>{
     const [img,setimg]=useState(false);
     const[loading,setloading]=useState(false);
     const departments=useSelector(state=>state.main.departments);
+    const backendemail=useSelector(state=>state.main.backendemail);
     const onchangehandler=(event)=>{
         dispatch(control.setdepartments({
             name:event.target.name,
@@ -22,6 +23,10 @@ const Adddepartment=({url})=>{
         if(!img){
             toast.error("Please Add Image")
             return ;
+        }
+        if(!backendemail){
+          toast.error("Admin Login Required");
+          return ;
         }
         try {
             setloading(true);

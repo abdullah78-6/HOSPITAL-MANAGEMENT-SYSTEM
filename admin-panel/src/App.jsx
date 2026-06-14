@@ -15,9 +15,9 @@ function App() {
   const backendurl="http://localhost:5000"
   return <div>
  
-    <Navbar/>
+    <Navbar url={backendurl}/>
     <hr/>
-     <div className=" flex">
+     <div className=" flex ">
     <Sidebar url={backendurl}/>
     <Routes>
       <Route path="/" element={<Dashboard/>}></Route>

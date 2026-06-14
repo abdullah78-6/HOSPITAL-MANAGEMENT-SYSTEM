@@ -5,6 +5,7 @@ import { control } from "../store/slice";
 const Addpatient=({url})=>{
     const dispatch=useDispatch();
     const patientdetails=useSelector(state=>state.main.patientdetails);
+    const backendemail=useSelector(state=>state.main.backendemail);
     const Onchangehandler=(event)=>{
         dispatch(control.setpatientdetails({
             name:event.target.name,
@@ -14,6 +15,11 @@ const Addpatient=({url})=>{
     }
     const Admitpatient=async(e)=>{
         e.preventDefault();
+        if(!backendemail){
+            toast.error("Admin Login Required");
+            return ;
+            
+        }
         try {
             const response=await axios.post(url+"/api/admin/add",{patientdetails},{
             withCredentials:true,

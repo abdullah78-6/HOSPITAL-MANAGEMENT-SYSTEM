@@ -1,12 +1,57 @@
 import {Link} from "react-router-dom"
 import { control } from "../store/slice";
-import {useDispatch} from "react-redux"
-const Navbar=()=>{
+import {useDispatch,useSelector} from "react-redux"
+import axios from "axios"
+import toast from "react-hot-toast"
+const Navbar=({url})=>{
     const dispatch=useDispatch();
-    return <div className="font-semibold capitalize bg-[#618764] p-4 ">
-        <div className="flex justify-items-start items-center  ">
+    const backendemail=useSelector(state=>state.main.backendemail);
+    const Logout=async(e)=>{
+        e.preventDefault();
+          const response=await axios.post(url+"/api/admin/logout",{},{
+            withCredentials:true
+        });
+        if(response.data.status){
+            dispatch(control.setbackendemail(""));
+            
+        toast.success(response.data.message);
+
+        }
+        else{
+            toast.error(response.data.message);
+        }
+
+    }
+    return <div className="font-semibold capitalize bg-[#618764] p-4 flex justify-between items-center font-semibold">
+        <div className="flex justify-items-start items-center flex-wrap ">
         <Link onClick={()=>dispatch(control.setnavbarclass(""))} to="/" className="text-2xl capitalize text-[#273338]" >medicare-<span className="text-2xl capitalize text-pink-800">Hospital</span></Link>
+       
+        
         </div>
+         <ul className="flex justify-end items-center gap-9 capitalize font-semibold md:hidden xl:hidden lg:hidden ">
+            <Link to="/" className="text-pink-100 bg-pink-800 p-2 rounded-3xl hover:bg-pink-950 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer ">Dashboard</Link>
+            <Link className="text-pink-100 bg-pink-800 p-2 rounded-3xl hover:bg-pink-950 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/add-departments">Add Departments</Link>
+            <Link className="text-pink-100 bg-pink-800 p-2 rounded-3xl hover:bg-pink-950 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/doctors">Doctors</Link>
+            <Link className="text-pink-100 bg-pink-800 p-2 rounded-3xl hover:bg-pink-950 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/appointments">Appointments</Link>
+            <Link className="text-pink-100 bg-pink-800 p-2 rounded-3xl hover:bg-pink-950 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/list">Patients Lists</Link>
+            <Link className="text-pink-100 bg-pink-800 p-2 rounded-3xl hover:bg-pink-950 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/add-patients">Add Patients</Link>
+            <Link className="text-pink-100 bg-pink-800 p-2 rounded-3xl hover:bg-pink-950 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/dlist">departments list</Link>
+           {!backendemail? <Link to="/login" className="bg-blue-700 text-white p-2 rounded-3xl hover:bg-blue-900 transition ease-in-out duration-200" >LOGIN</Link>:<button className="bg-red-700 text-white p-2 rounded-3xl hover:bg-red-900 transition ease-in-out duration-200" onClick={Logout}>LOGOUT</button>}
+            {backendemail && (
+    <div className="flex items-center justify-between gap-3 cursor-poiter flex-wrap">
+      <div>
+        <p className="text-sm text-white/80">Welcome</p>
+        <h2 className="text-lg font-bold text-white">
+          Admin
+        </h2>
+      </div>
+
+      <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-pink-800 font-bold text-lg shadow-md">
+        {backendemail.slice(0, 1).toUpperCase()}
+      </div>
+    </div>
+  )}
+        </ul>
         
     </div>
 

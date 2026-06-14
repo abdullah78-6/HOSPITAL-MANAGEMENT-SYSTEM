@@ -6,7 +6,7 @@ import toast from "react-hot-toast"
 import { FaTrash } from "react-icons/fa";
 const Patientlist=({url})=>{
     const dispatch=useDispatch();
-    
+    const backendemail=useSelector(state=>state.main.backendemail);
     const Illlist=useSelector(state=>state.main.Illlist);
     const Fetch=async()=>{
         try {
@@ -53,9 +53,16 @@ useEffect(()=>{
         <span className="text-pink-800">Patients List</span>
       </h1>
     </div>
-    {Illlist.length===0&&<h1 className="text-center  capitalize font-semibold text-red-800 text-2xl">list is empty</h1>}
+   {!backendemail?(
+      <h1 className="text-center text-2xl font-semibold text-red-700 mt-10">
+            ADMIN LOGIN REQUIRED
+          </h1>
 
-    <div className="h-[75vh] overflow-y-auto pr-2">
+    ):Illlist.length===0?(
+      <h1 className="text-center  capitalize font-semibold text-red-800 text-2xl">list is empty</h1>
+
+    ):(
+      <div className="h-[75vh] overflow-y-auto pr-2">
       {Illlist.map((item, i) => (
         <div
           key={item._id}
@@ -133,6 +140,10 @@ useEffect(()=>{
         </div>
       ))}
     </div>
+    )
+  }
+
+    
   </div>
 );
 
