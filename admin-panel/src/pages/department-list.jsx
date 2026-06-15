@@ -10,8 +10,10 @@ const Departmentlist=({url})=>{
     const dispatch=useDispatch();
     const Dlist=useSelector(state=>state.main.Dlist);
     const [edit,setedit]=useState(false);
+    
     const[newname,setnewname]=useState("");
     const backendemail=useSelector(state=>state.main.backendemail);
+    const storeid=useSelector(state=>state.main.storeid);
     const FetchDepartment=async()=>{
         const response=await axios.get(url+"/api/admin/dptget",{
             withCredentials:true
@@ -44,6 +46,16 @@ const Departmentlist=({url})=>{
 
 
     }
+    const Check=(id)=>{
+    dispatch(control.setstoreid(id));
+        setedit(true);
+        
+
+    }
+    const Cancel=()=>{
+        setedit(false);
+        dispatch(control.setstoreid(null));
+    }
     const Update=async(id)=>{
         if(!newname){
             toast.error("Please Add Name First");
@@ -73,7 +85,9 @@ const Departmentlist=({url})=>{
 
     }
         return (
+            
             <div className="font-semibold text-xl capitalize w-full  p-2 sm:p-2">
+               
                 <div>
                     <h1 className="text-2xl mt-2 text-center text-pink-800">hospital Department list</h1>
                 </div>
@@ -88,36 +102,85 @@ const Departmentlist=({url})=>{
     ):<div className="h-[95vh] overflow-y-auto pr-2 mt-5 bg-gray-100 ">
                 <div className="flex justify-between items-center  gap-5 flex-col flex-wrap font-semibold">
                     {Dlist.map((index,i)=>(
-                        <div key={index._id} className="flex justify-between items-center  gap-15 mt-5 text-pink-800 flex-row  ">
-                            <div>
-                                <h1 className="text-yellow-700">{i+1}</h1>
-                            </div>
-                            <div className="flex justify-center items-center ">
-                                <img src={index.image} className=" w-auto rounded-full h-auto"/>
-                            </div>
-                            <div>
-                                <h1 className="text-green-800">{index.name}</h1>
-                            </div>
-                            <div className="flex justify-center items-center gap-3">
-                                {edit?<input onChange={(e)=>setnewname(e.target.value) } className="border-2 border-green-800  focus:border focus:border-pink-800 p-2 text-xl rounded-2xl " type="text"  placeholder="add new doctor name " />:<p>{index.doctor}</p>}
-                                {edit?<div>
-                                    <button className="bg-blue-900 hover:bg-blue-950 transitio ease-in-out duration-200 p-2 rounded-2xl text-sm text-green-300 " onClick={()=>Update(index._id)}>Edit</button>
-                                    </div>:<></>}
-                                    {edit?<div>
-                                    <button className="bg-red-700 hover:bg-red-950 transition ease-in-out duration-200 p-2 rounded-2xl text-sm text-white " onClick={()=>setedit(false)}><ImCross/></button>
-                                    </div>:<></>}
-                            
-                            </div>
-                            <div>
-                                <h1 className="text-blue-700 ">{index.details}</h1>
-                            </div>
-                            <h1 className="font-bold text-lg text-red-800 hover:bg-red-950 transition ease-in-out duration-200 p-2 rounded-2xl" >
-                             <FaTrash onClick={()=>Delete(index._id)}/>
-                            </h1>
-                            <h1 className="text-pink-800 rounded-2xl p-2  hover:bg-pink-950 transition ease-in-out duration-200"><FaPenClip onClick={()=>setedit(true)} /></h1>
-                           
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-4" key={index._id}>
+  {Dlist.map((index, i) => (
+    <div
+      key={index._id}
+      className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-5 border border-gray-200"
+    >
+      <div className="flex items-center gap-5">
+      
+        <div className="w-28 h-28 shrink-0">
+          <img
+            src={index.image}
+            alt={index.name}
+            className="w-full h-full rounded-full object-cover border-4 border-pink-200"
+          />
+        </div>
 
-                        </div>
+      
+        <div className="flex-1">
+          <h1 className="text-lg font-bold text-green-700">
+            {i + 1}. {index.name}
+          </h1>
+
+          <p className="text-blue-700 mt-2">
+            <span className="font-semibold">Doctor:</span>{" "}
+            {index.doctor}
+          </p>
+
+          <p className="text-gray-600 mt-2 text-sm">
+            {index.details}
+          </p>
+        </div>
+      </div>
+
+      
+      {edit && storeid === index._id && (
+        <div className="mt-4 flex gap-3 flex-wrap">
+          <input
+            onChange={(e) => setnewname(e.target.value)}
+            type="text"
+            placeholder="Enter New Name"
+            className="border-2 border-green-700 rounded-xl px-3 py-2 outline-none focus:border-pink-700 text-blue-700"
+          />
+
+          <button
+            onClick={() => Update(index._id)}
+            className="bg-blue-700 hover:bg-blue-900 text-white px-4 py-2 rounded-xl"
+          >
+            Update
+          </button>
+
+          <button
+            onClick={Cancel}
+            className="bg-red-600 hover:bg-red-800 text-white px-4 py-2 rounded-xl"
+          >
+            <ImCross />
+          </button>
+        </div>
+      )}
+
+      
+      <div className="flex justify-end gap-4 mt-5">
+        <button
+          onClick={() => Check(index._id)}
+          className="bg-pink-100 text-pink-700 p-3 rounded-full hover:bg-pink-700 hover:text-white transition"
+        >
+          <FaPenClip />
+        </button>
+
+        <button
+          onClick={() => Delete(index._id)}
+          className="bg-red-100 text-red-700 p-3 rounded-full hover:bg-red-700 hover:text-white transition"
+        >
+          <FaTrash />
+        </button>
+      </div>
+    </div>
+  ))}
+</div>
+                
 
                     ))}
                 </div>

@@ -22,7 +22,7 @@ const adminslice=createSlice({
             department_doctor:"",
             department_details:""
         },
-        Illlist:[],Dlist:[]
+        Illlist:[],Dlist:[],storeid:null
     },
     reducers:{
         setloginstatus(state,action){
@@ -53,6 +53,9 @@ const adminslice=createSlice({
         },
         setDlist(state,action){
             state.Dlist=action.payload;
+        },
+        setstoreid(state,action){
+            state.storeid=action.payload;
         }
     }
 })

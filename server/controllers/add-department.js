@@ -76,7 +76,7 @@ const UpdateDepartment=async(req,res)=>{
     }
     department.doctor=name
     await department.save();
-        return res.json({status:true,message:"Department Updated Successfully "})    
+        return res.json({status:true,message:"Name Updated Successfully "})    
         
         
     } catch (error) {

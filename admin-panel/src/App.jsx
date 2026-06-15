@@ -3,7 +3,6 @@ import Sidebar from "./components/sidebar"
 import {Routes,Route} from "react-router-dom"
 import Dashboard from "./pages/dashboard"
 import Adddepartment from "./pages/add-department"
-import Doctor from "./pages/doctors"
 import Appointment from "./pages/appointments"
 import Addpatient from "./pages/add-patients"
 import { useSelector } from "react-redux"
@@ -22,7 +21,6 @@ function App() {
     <Routes>
       <Route path="/" element={<Dashboard/>}></Route>
       <Route path="/add-departments" element={<Adddepartment url={backendurl}/>}></Route>
-      <Route path="/doctors" element={<Doctor/>}></Route>
       <Route path="/appointments" element={<Appointment/>}></Route>
       <Route path="/add-patients" element={<Addpatient url={backendurl}/>}></Route>
       <Route path="/list" element={<Patientlist url={backendurl}/>}></Route>

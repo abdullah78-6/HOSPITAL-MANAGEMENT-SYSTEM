@@ -28,10 +28,9 @@ const Navbar=({url})=>{
        
         
         </div>
-         <ul className="flex justify-end items-center gap-9 capitalize font-semibold md:hidden xl:hidden lg:hidden ">
+         <ul className="flex justify-end items-center gap-9 capitalize font-semibold md:hidden xl:hidden lg:hidden flex-wrap ">
             <Link to="/" className="text-pink-100 bg-pink-800 p-2 rounded-3xl hover:bg-pink-950 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer ">Dashboard</Link>
             <Link className="text-pink-100 bg-pink-800 p-2 rounded-3xl hover:bg-pink-950 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/add-departments">Add Departments</Link>
-            <Link className="text-pink-100 bg-pink-800 p-2 rounded-3xl hover:bg-pink-950 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/doctors">Doctors</Link>
             <Link className="text-pink-100 bg-pink-800 p-2 rounded-3xl hover:bg-pink-950 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/appointments">Appointments</Link>
             <Link className="text-pink-100 bg-pink-800 p-2 rounded-3xl hover:bg-pink-950 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/list">Patients Lists</Link>
             <Link className="text-pink-100 bg-pink-800 p-2 rounded-3xl hover:bg-pink-950 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/add-patients">Add Patients</Link>
