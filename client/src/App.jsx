@@ -1,5 +1,18 @@
+
+import Navbar from "./components/navbar";
+import Signup from "./pages/Signuppage"
+import {Routes,Route, Outlet} from "react-router-dom"
 function App() {
-  return <h1 className="text-6xl text-center bg-red-700">hospital management system</h1>
+  const url="http://localhost:5000";
+  return <div>
+    <Navbar url={url}/>
+    <Outlet/>
+    <Routes>
+      <Route path="/login" element={<Signup url={url}/>}></Route>
+    
+    
+    </Routes>
+  </div>
 
   
 }
