@@ -8,11 +8,23 @@ const userslice=createSlice({
             email:"",
             password:""
         },
+        appointment:{
+            first_name:"",
+            last_name:"",
+            contact:"",
+            age:"",
+            date:""
+
+        },
+        mobilenav:false
         
     },
     reducers:{
     setbackendemail2(state,action){
             state.backendemail2=action.payload;
+        },
+        setmobilenav(state,action){
+            state.mobilenav=action.payload;
         },
         setlogininfo2(state,action){
             const {name,value}=action.payload;
@@ -20,6 +32,10 @@ const userslice=createSlice({
         },
         setformtype(state,action){
             state.formtype=action.payload;
+        },
+        setappointment(state,action){
+            const {name,value}=action.payload;
+            state.appointment[name]=value
         }
        
     }
