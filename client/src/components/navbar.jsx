@@ -64,6 +64,7 @@ const Navbar=({url})=>{
             <Link className="hover:underline hover:text-pink-800  ">our services</Link>
             <Link className="hover:underline hover:text-pink-800  " to="/appointment">book  appointment</Link>
             <Link className="hover:underline hover:text-pink-800  ">about-us</Link>
+            <Link to="/departments" className="hover:underline hover:text-pink-800  ">departments</Link>
             <Link className="hover:underline hover:text-pink-800  ">contact-us</Link>
         </ul>
       {mobilenav && (
@@ -97,6 +98,13 @@ const Navbar=({url})=>{
         className="hover:text-pink-800 transition duration-200"
       >
         About Us
+      </Link>
+          <Link
+        onClick={() => dispatch(control.setmobilenav(false))}
+        className="hover:text-pink-800 transition duration-200"
+        to="/departments"
+      >
+        departments
       </Link>
 
       <Link

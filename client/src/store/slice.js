@@ -16,7 +16,7 @@ const userslice=createSlice({
             date:""
 
         },
-        mobilenav:false
+        mobilenav:false,Dlist:[]
         
     },
     reducers:{
@@ -36,6 +36,9 @@ const userslice=createSlice({
         setappointment(state,action){
             const {name,value}=action.payload;
             state.appointment[name]=value
+        },
+        setDlist(state,action){
+            state.Dlist=action.payload;
         }
        
     }

@@ -71,32 +71,48 @@ const Onsubmithandler=async(e)=>{
 
 
 }
-    return <div className="p-4 font-semibold text-sm  flex gap-9">
-       <form className="flex flex-col justify-center items-center gap-7" onSubmit={Onsubmithandler}>
+    return <div className=" font-semibold    min-h-[70vh] px-4 py-10 flex justify-center items-center   ">
+       <form className="flex flex-col text-center   justify-center items-center gap-10 bg-[#618764] rounded-2xl p-12 " onSubmit={Onsubmithandler}>
     {formtype!=="login"&&
-        <div >
-            
-            <label htmlFor="name">enter name</label>
-            <input onChange={Onchangehandler} value={logininfo2.name} name="name" type="text" placeholder="enter name" required/>
-            </div>}
+        <div className="flex justify-center items-center gap-5" >
+                <div className="w-40 text-right">
+            <label className="text-xl capitalize text-pink-100" htmlFor="name">enter name</label>
+            </div>
             <div>
-            <label htmlFor="email">enter email</label>
-            <input onChange={Onchangehandler} value={logininfo2.email} name="email" type="email" placeholder="enter email" required/>
+            <input className="border-2 text-gray-800 border-blue-900 focus:border-white focus:outline-none p-1 rounded-3xl  "  onChange={Onchangehandler} value={logininfo2.name} name="name" type="text" placeholder="enter name" required/>
+            </div>           
+            </div>}
+            <div className="flex justify-center items-center gap-5">
+                <div className="w-40 text-right">
+            <label className="text-xl capitalize text-pink-100" htmlFor="email">enter email</label>
+            </div>
+            <div>
+            <input className="border-2 text-gray-800 border-blue-900 focus:border-white focus:outline-none p-1 rounded-3xl  "  onChange={Onchangehandler} value={logininfo2.email} name="email" type="email" placeholder="enter email" required/>
+            </div>
         </div>
-        <div>
-            <label htmlFor="password">enter password</label>
-            <input onChange={Onchangehandler} value={logininfo2.password} name="password" type="password" placeholder="enter password" required/>
+        <div className="flex justify-center items-center gap-5">
+            <div className="w-40 text-right">
+            <label className="text-xl capitalize text-pink-100" htmlFor="password">enter password</label>
+            </div>
+            <div>
+            <input className="border-2 text-gray-800 border-blue-900 focus:border-white focus:outline-none p-1 rounded-3xl  " onChange={Onchangehandler} value={logininfo2.password} name="password" type="password" placeholder="enter password" required/>
+            </div>
         </div>
         <div>
             {formtype==="login"?
-            <p onClick={()=>dispatch(control.setformtype("signup"))}>Create a new account </p>:
-            <p onClick={()=>dispatch(control.setformtype("login"))}>Already have an account </p>}
+            <div>
+            <p className="bg-blue-800 text-white capitalize p-2 rounded-2xl hover:bg-blue-900 transition ease-in-out duration-200 cursor-pointer"  onClick={()=>dispatch(control.setformtype("signup"))}>Create a new account </p>
+            </div>:
+            <div>
+            <p className="bg-blue-800 text-white capitalize p-2 rounded-2xl hover:bg-blue-900 transition ease-in-out duration-200 cursor-pointer" onClick={()=>dispatch(control.setformtype("login"))}>Already have an account </p>
+            </div>}
+
             
         </div>
         <div>
             {formtype==="login"?
-            <button type="submit">Login</button>:
-            <button type="submit">Signup</button>
+            <button className="bg-red-800 text-white capitalize p-2 rounded-2xl hover:bg-red-900 transition ease-in-out duration-200 cursor-pointer hover:scale-120" type="submit">Login</button>:
+            <button className="bg-red-800 text-white capitalize p-2 rounded-2xl hover:bg-red-900 transition ease-in-out duration-200 cursor-pointer hover:scale-120" type="submit">Signup</button>
            }
     
         </div>
