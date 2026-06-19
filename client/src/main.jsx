@@ -9,6 +9,9 @@ import ClientStore from './store/store.js';
 import Appointment from './pages/Appointment.jsx';
 import Signup from './pages/Signuppage.jsx';
 import Departments from './pages/Department.jsx';
+import Hero from './components/Hero.jsx';
+import Contact from './components/contact-us.jsx';
+import About from './components/about.jsx';
 const url="http://localhost:5000";
 const router=createBrowserRouter([
   
@@ -20,6 +23,8 @@ const router=createBrowserRouter([
         index:true,
         element:(
           <>
+          <Hero/>
+          <About/>
           
           </>
         )
@@ -35,7 +40,12 @@ const router=createBrowserRouter([
       {
         path:"/departments",
         element:<Departments url={url}/>
+      },
+      {
+        path:"/contact",
+        element:<Contact url={url}/>
       }
+
     ]
   }
 ])

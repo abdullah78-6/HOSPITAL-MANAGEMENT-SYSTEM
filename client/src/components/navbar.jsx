@@ -65,7 +65,7 @@ const Navbar=({url})=>{
             <Link className="hover:underline hover:text-pink-800  " to="/appointment">book  appointment</Link>
             <Link className="hover:underline hover:text-pink-800  ">about-us</Link>
             <Link to="/departments" className="hover:underline hover:text-pink-800  ">departments</Link>
-            <Link className="hover:underline hover:text-pink-800  ">contact-us</Link>
+            <Link to="/contact" className="hover:underline hover:text-pink-800  ">contact-us</Link>
         </ul>
       {mobilenav && (
   <div className="absolute top-16 left-0 w-full bg-[#618764] shadow-lg border-t border-[#4d6c50] md:hidden lg:hidden xl:hidden z-50 animate-[slideDown_0.4s_ease-in-out] ">
@@ -110,6 +110,7 @@ const Navbar=({url})=>{
       <Link
         onClick={() => dispatch(control.setmobilenav(false))}
         className="hover:text-pink-800 transition duration-200"
+        to="/contact"
       >
         Contact Us
       </Link>
