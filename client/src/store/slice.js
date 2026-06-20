@@ -16,6 +16,13 @@ const userslice=createSlice({
             date:""
 
         },
+        contact:{
+            name:"",
+            email:"",
+            phone_no:"",
+            message:""
+
+        },
         mobilenav:false,Dlist:[]
         
     },
@@ -39,6 +46,11 @@ const userslice=createSlice({
         },
         setDlist(state,action){
             state.Dlist=action.payload;
+        },
+        setcontact(state,action){
+            const {name,value}=action.payload;
+            state.contact[name]=value;
+
         }
        
     }

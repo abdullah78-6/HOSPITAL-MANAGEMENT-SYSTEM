@@ -12,6 +12,8 @@ import Departments from './pages/Department.jsx';
 import Hero from './components/Hero.jsx';
 import Contact from './components/contact-us.jsx';
 import About from './components/about.jsx';
+import Services from './components/our services.jsx';
+import Achievement from './components/Achievements.jsx';
 const url="http://localhost:5000";
 const router=createBrowserRouter([
   
@@ -24,7 +26,9 @@ const router=createBrowserRouter([
         element:(
           <>
           <Hero/>
+          <Services/>
           <About/>
+          <Achievement/>
           
           </>
         )

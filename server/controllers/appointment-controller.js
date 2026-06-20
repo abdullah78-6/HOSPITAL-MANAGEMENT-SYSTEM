@@ -27,4 +27,7 @@ const Bookappointment=async(req,res)=>{
 const Getappointment=async()=>{
 
 }
-export {Bookappointment,Getappointment}
+const Deleteappointment=async()=>{
+
+}
+export {Bookappointment,Getappointment,Deleteappointment}

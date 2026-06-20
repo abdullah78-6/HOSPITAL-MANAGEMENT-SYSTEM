@@ -22,7 +22,7 @@ const Navbar=({url})=>{
         }
 
     }
-    return <div className="font-semibold capitalize bg-[#618764] p-4 flex justify-between items-center font-semibold">
+    return <div className="capitalize bg-[#618764] p-4 flex justify-between items-center font-semibold">
         <div className="flex justify-items-start items-center flex-wrap ">
         <Link onClick={()=>dispatch(control.setnavbarclass(""))} to="/" className="text-2xl capitalize text-[#273338]" >medicare-<span className="text-2xl capitalize text-pink-800">Hospital</span></Link>
        

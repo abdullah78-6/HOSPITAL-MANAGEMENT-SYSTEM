@@ -1,4 +1,42 @@
-const Contact = () => {
+import {useSelector,useDispatch} from "react-redux"
+import toast from "react-hot-toast"
+import { control } from "../store/slice";
+import axios from "axios"
+const Contact = ({url}) => {
+  const dispatch=useDispatch();
+  const contact=useSelector(state=>state.main.contact);
+  const backendemail=useSelector(state=>state.main.backendemail2);
+  const onchangehandler=(e)=>{
+    dispatch(control.setcontact({
+      name:e.target.name,
+      value:e.target.value
+    }))
+  }
+  const Submit=async(e)=>{
+    e.preventDefault();
+    if(!backendemail){
+      toast.error("User Login Required");
+      return ;
+    }
+    try {
+    const res=await axios.post(url+"/api/cnt/contact", contact,{
+           
+            withCredentials:true,
+      })
+     if(res.data.status){
+      toast.success(res.data.message);
+     }
+     else{
+      toast.error(res.data.message);
+     }
+      
+    } catch (error) {
+      console.log("contact server error",error);
+      toast.error(error.message);
+      
+    }
+
+  }
   return (
     <div className="font-semibold">
       <header className=" text-white p-4">
@@ -41,6 +79,7 @@ const Contact = () => {
         <main className="flex justify-center gap-28 mt-14 flex-wrap">
           <form
             className="w-full max-w-lg space-y-6 ml-10 bg-gradient-to-br rounded-2xl p-10 from-green-200 via-white to-pink-200"
+            onSubmit={Submit}
             
           >
             <div className="flex flex-col">
@@ -57,6 +96,9 @@ const Contact = () => {
                 placeholder="Enter name"
                 className="border border-gray-800 rounded-2xl p-2"
                 required
+                onChange={onchangehandler}
+                name="name"
+                value={contact.name}
               />
             </div>
 
@@ -74,6 +116,9 @@ const Contact = () => {
                 placeholder="Enter email"
                 className="border border-gray-800 rounded-2xl p-2"
                 required
+                onChange={onchangehandler}
+                name="email"
+                value={contact.email}
               />
             </div>
 
@@ -91,6 +136,9 @@ const Contact = () => {
                 placeholder="Phone"
                 className="border border-gray-800 rounded-2xl p-2"
                 required
+                onChange={onchangehandler}
+                name="phone_no"
+                value={contact.phone_no}
               />
             </div>
 
@@ -108,6 +156,9 @@ const Contact = () => {
                 placeholder="Your message here"
                 className="border border-gray-800 rounded-2xl p-2 resize-none"
                 required
+                onChange={onchangehandler}
+                name="message"
+                value={contact.message}
               ></textarea>
             </div>
 

@@ -61,9 +61,9 @@ const Navbar=({url})=>{
         </div>
         <ul className=" hidden xl:flex xl:justify-center xl:items-center  xl:text-xl xl:text-gray-200 xl:gap-7     md:flex md:justify-center md:items-center  md:text-xl md:text-gray-200 md:gap-7     lg:flex lg:justify-center lg:items-center  lg:text-xl lg:text-gray-200 lg:gap-7 ">
             <Link className="hover:underline hover:text-pink-800 " to="/">home</Link>
-            <Link className="hover:underline hover:text-pink-800  ">our services</Link>
+            
             <Link className="hover:underline hover:text-pink-800  " to="/appointment">book  appointment</Link>
-            <Link className="hover:underline hover:text-pink-800  ">about-us</Link>
+            <a href="#about" className="hover:underline hover:text-pink-800  ">about-us</a>
             <Link to="/departments" className="hover:underline hover:text-pink-800  ">departments</Link>
             <Link to="/contact" className="hover:underline hover:text-pink-800  ">contact-us</Link>
         </ul>
@@ -78,12 +78,7 @@ const Navbar=({url})=>{
         Home
       </Link>
 
-      <Link
-        onClick={() => dispatch(control.setmobilenav(false))}
-        className="hover:text-pink-800 transition duration-200"
-      >
-        Our Services
-      </Link>
+      
 
       <Link
         onClick={() => dispatch(control.setmobilenav(false))}
@@ -93,12 +88,13 @@ const Navbar=({url})=>{
         Book Appointment
       </Link>
 
-      <Link
+      <a
         onClick={() => dispatch(control.setmobilenav(false))}
         className="hover:text-pink-800 transition duration-200"
+        href="#about"
       >
         About Us
-      </Link>
+      </a>
           <Link
         onClick={() => dispatch(control.setmobilenav(false))}
         className="hover:text-pink-800 transition duration-200"
