@@ -71,10 +71,10 @@ const Onsubmithandler=async(e)=>{
 
 
 }
-    return <div className=" font-semibold    min-h-[70vh] px-4 py-10 flex justify-center items-center   ">
-       <form className="flex flex-col text-center   justify-center items-center gap-10 bg-[#618764] rounded-2xl p-12 " onSubmit={Onsubmithandler}>
+    return <div className=" font-semibold    min-h-[70vh] px-4 py-10 flex justify-center items-center  flex-wrap ">
+       <form className="flex flex-col text-center   justify-center items-center gap-10 bg-[#618764] rounded-2xl p-3 md:p-12 xl:p-12 lg:p-12 " onSubmit={Onsubmithandler}>
     {formtype!=="login"&&
-        <div className="flex justify-center items-center gap-5" >
+        <div className="flex justify-center items-center flex-wrap gap-5" >
                 <div className="w-40 text-right">
             <label className="text-xl capitalize text-pink-100" htmlFor="name">enter name</label>
             </div>
@@ -82,7 +82,7 @@ const Onsubmithandler=async(e)=>{
             <input className="border-2 text-gray-800 border-blue-900 focus:border-white focus:outline-none p-1 rounded-3xl  "  onChange={Onchangehandler} value={logininfo2.name} name="name" type="text" placeholder="enter name" required/>
             </div>           
             </div>}
-            <div className="flex justify-center items-center gap-5">
+            <div className="flex justify-center items-center gap-5 flex-wrap">
                 <div className="w-40 text-right">
             <label className="text-xl capitalize text-pink-100" htmlFor="email">enter email</label>
             </div>
@@ -90,7 +90,7 @@ const Onsubmithandler=async(e)=>{
             <input className="border-2 text-gray-800 border-blue-900 focus:border-white focus:outline-none p-1 rounded-3xl  "  onChange={Onchangehandler} value={logininfo2.email} name="email" type="email" placeholder="enter email" required/>
             </div>
         </div>
-        <div className="flex justify-center items-center gap-5">
+        <div className="flex justify-center items-center gap-5 flex-wrap">
             <div className="w-40 text-right">
             <label className="text-xl capitalize text-pink-100" htmlFor="password">enter password</label>
             </div>

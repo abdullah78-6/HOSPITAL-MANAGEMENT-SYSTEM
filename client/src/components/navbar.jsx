@@ -111,7 +111,7 @@ const Navbar=({url})=>{
         Contact Us
       </Link>
 
-      <div className="flex items-center gap-4 pt-4">
+      <div className="flex items-center gap-4 pt-4 flex-wrap">
         {backendemail2 && (
           <h1 className="bg-white cursor-pointer hover:bg-pink-800 hover:text-white transition duration-200 w-10 h-10 flex items-center justify-center text-pink-800 rounded-full">
             {backendemail2.slice(0, 1)}
@@ -137,7 +137,7 @@ const Navbar=({url})=>{
     </ul>
   </div>
 )}
-                <div className=" hidden xl:flex xl:justify-end xl:items-center xl:gap-6          md:flex md:justify-end md:items-center md:gap-6         lg:flex lg:justify-end lg:items-center lg:gap-6">
+                <div className=" hidden xl:flex xl:justify-end xl:items-center xl:gap-6          md:flex md:justify-end md:items-center md:gap-6         lg:flex lg:justify-end lg:items-center lg:gap-6 flex-wrap">
             <div>
         {backendemail2?<h1 className="bg-white cursor-pointer hover:bg-pink-800 hover:text-white transition ease-in-out duration-200 p-2 w-10 h-10 text-pink-800   text-center rounded-full">{backendemail2.slice(0,1)}</h1>:<></>}
         </div>

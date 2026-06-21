@@ -78,7 +78,7 @@ const Contact = ({url}) => {
 
         <main className="flex justify-center gap-28 mt-14 flex-wrap">
           <form
-            className="w-full max-w-lg space-y-6 ml-10 bg-gradient-to-br rounded-2xl p-10 from-green-200 via-white to-pink-200"
+            className="w-full max-w-lg space-y-6 ml-10 bg-gradient-to-br rounded-2xl p-5 md:p-8 lg:p-8 xl:p-8 from-green-200 via-white to-pink-200"
             onSubmit={Submit}
             
           >

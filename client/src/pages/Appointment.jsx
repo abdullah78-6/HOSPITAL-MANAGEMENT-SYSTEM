@@ -35,9 +35,9 @@ const Appointment = ({url}) => {
     }
 
 return (
-  <div className="font-semibold text-xl flex justify-center items-center min-h-[80vh] px-4 py-10 bg-gradient-to-br from-[#C1EBE9] via-[#D8F3DC] to-[#EAF4F4]">
+  <div className="font-semibold text-xl flex justify-center items-center min-h-[80vh] px-4 py-10 bg-gradient-to-br from-[#C1EBE9] via-[#D8F3DC] to-[#EAF4F4] ">
     <form
-      className="flex justify-center items-center flex-col gap-7 bg-[#618764]/95 p-12 rounded-[35px] shadow-[0_20px_50px_rgba(0,0,0,0.25)] border-2 border-white/30 backdrop-blur-md"
+      className="flex justify-center items-center flex-col gap-7 bg-[#618764]/95 p-4 md:p-12 xl:p-12 lg:p-12 rounded-[35px] shadow-[0_20px_50px_rgba(0,0,0,0.25)] border-2 border-white/30 backdrop-blur-md"
       onSubmit={BookAppointment}
     >
       <div className="text-center mb-2">
@@ -58,7 +58,7 @@ return (
           onChange={Onchangehandler}
           value={appointment.first_name}
           name="first_name"
-          className="border-2 border-blue-900 text-gray-800 bg-white px-5 py-3 rounded-full focus:border-white focus:outline-none shadow-lg transition-all duration-300 w-[280px]"
+          className="border-2 border-blue-900 text-gray-800 bg-white px-2 py-2 rounded-full focus:border-white focus:outline-none shadow-lg transition-all duration-300 w-[280px]"
           type="text"
           placeholder="First Name"
           required
@@ -74,7 +74,7 @@ return (
           onChange={Onchangehandler}
           value={appointment.last_name}
           name="last_name"
-          className="border-2 border-blue-900 text-gray-800 bg-white px-5 py-3 rounded-full focus:border-white focus:outline-none shadow-lg transition-all duration-300 w-[280px]"
+          className="border-2 border-blue-900 text-gray-800 bg-white px-2 py-2 rounded-full focus:border-white focus:outline-none shadow-lg transition-all duration-300 w-[280px]"
           type="text"
           placeholder="Last Name"
           required
@@ -90,7 +90,7 @@ return (
           onChange={Onchangehandler}
           value={appointment.contact}
           name="contact"
-          className="border-2 border-blue-900 text-gray-800 bg-white px-5 py-3 rounded-full focus:border-white focus:outline-none shadow-lg transition-all duration-300 w-[280px]"
+          className="border-2 border-blue-900 text-gray-800 bg-white px-2 py-2 rounded-full focus:border-white focus:outline-none shadow-lg transition-all duration-300 w-[280px]"
           type="number"
           placeholder="Contact-no +91"
           required
@@ -106,7 +106,7 @@ return (
           onChange={Onchangehandler}
           value={appointment.age}
           name="age"
-          className="border-2 border-blue-900 text-gray-800 bg-white px-5 py-3 rounded-full focus:border-white focus:outline-none shadow-lg transition-all duration-300 w-[280px]"
+          className="border-2 border-blue-900 text-gray-800 bg-white px-2 py-2 rounded-full focus:border-white focus:outline-none shadow-lg transition-all duration-300 w-[280px]"
           type="number"
           placeholder="Age"
           required
@@ -122,7 +122,7 @@ return (
           onChange={Onchangehandler}
           value={appointment.date}
           name="date"
-          className="border-2 border-blue-900 text-gray-800 bg-white px-5 py-3 rounded-full focus:border-white focus:outline-none shadow-lg transition-all duration-300 w-[280px]"
+          className="border-2 border-blue-900 text-gray-800 bg-white px-2 py-2 rounded-full focus:border-white focus:outline-none shadow-lg transition-all duration-300 w-[280px]"
           type="date"
           required
         />
