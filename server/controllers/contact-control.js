@@ -59,7 +59,38 @@ const Addcontact=async(req,res)=>{
      
 }
 
-const  Deletecontact2=async(req,res)=>{
+const  Deletecontact=async(req,res)=>{
+    try {
+            const {id}=req.body;
+            const contact=await contactmodel.findByIdAndDelete({_id:id});
+            if(contact){
+                return res.json({status:true,message:"DELETE SUCCESSFULLY"});
+            }
+            else{
+                return res.json({status:false,message:"DATA NOT DELETE"});
+            }
+            
+    
+            
+        } catch (error) {
+            console.log(error);
+            res.json({status:false,message:"delete contact error"});
+            
+            
+        }
 
 }
-export {Addcontact,Deletecontact2}
+const  Getcontact=async(req,res)=>{
+    try {
+            const contact=await contactmodel.find();
+            
+            return res.json({status:true,contact:contact});
+    
+        } catch (error) {
+            console.log("get contact error ",error);
+            res.json({status:false,message:error.message});
+            
+        }
+
+}
+export {Addcontact,Deletecontact,Getcontact}

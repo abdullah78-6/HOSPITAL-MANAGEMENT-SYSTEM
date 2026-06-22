@@ -1,6 +1,7 @@
 import express from "express"
-import { Bookappointment, Getappointment } from "../controllers/appointment-controller.js";
+import { Bookappointment, Deleteappointment, Getappointment } from "../controllers/appointment-controller.js";
 const Appintmentrouter=express.Router();
 Appintmentrouter.post("/book",Bookappointment);
-Appintmentrouter.get("/get",Getappointment);
+Appintmentrouter.get("/display",Getappointment);
+Appintmentrouter.delete("/delete2",Deleteappointment);
 export default Appintmentrouter;

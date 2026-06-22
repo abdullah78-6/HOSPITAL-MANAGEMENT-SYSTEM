@@ -33,6 +33,7 @@ const Navbar=({url})=>{
             <Link className="text-pink-100 bg-pink-800 p-2 rounded-3xl hover:bg-pink-950 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/add-departments">Add Departments</Link>
             <Link className="text-pink-100 bg-pink-800 p-2 rounded-3xl hover:bg-pink-950 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/appointments">Appointments</Link>
             <Link className="text-pink-100 bg-pink-800 p-2 rounded-3xl hover:bg-pink-950 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/list">Patients Lists</Link>
+            <Link className="text-pink-100 bg-pink-800 p-2 rounded-3xl hover:bg-pink-950 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/enquiries">Enquiries</Link>
             <Link className="text-pink-100 bg-pink-800 p-2 rounded-3xl hover:bg-pink-950 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/add-patients">Add Patients</Link>
             <Link className="text-pink-100 bg-pink-800 p-2 rounded-3xl hover:bg-pink-950 hover:underline transition ease-in-out duration-200 text-sm cursor-pointer " to="/dlist">departments list</Link>
            {!backendemail? <Link to="/login" className="bg-blue-700 text-white p-2 rounded-3xl hover:bg-blue-900 transition ease-in-out duration-200" >LOGIN</Link>:<button className="bg-red-700 text-white p-2 rounded-3xl hover:bg-red-900 transition ease-in-out duration-200" onClick={Logout}>LOGOUT</button>}

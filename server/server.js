@@ -28,7 +28,7 @@ app.use("/api/admin",addrouter);
 app.use("/api/admin",Departmentrouter);
 app.use("/api/user",Userauthrouter);
 app.use("/api/user",Appintmentrouter);
-app.use("/api/cnt/",contactrouter);
+app.use("/api/cnt",contactrouter);
 await Getdbconnection();
 const port=process.env.PORT;
 app.listen(port,()=>{

@@ -24,10 +24,38 @@ const Bookappointment=async(req,res)=>{
     }
 
 }
-const Getappointment=async()=>{
+const Getappointment=async(req,res)=>{
+    try {
+            const appointment=await appointmentmodel.find();
+            
+            return res.json({status:true,appointment:appointment});
+    
+        } catch (error) {
+            console.log("get appointment error ",error);
+            res.json({status:false,message:error.message});
+            
+        }
 
 }
-const Deleteappointment=async()=>{
+const Deleteappointment=async(req,res)=>{
+    try {
+            const {id}=req.body;
+            const appointment=await appointmentmodel.findByIdAndDelete({_id:id});
+            if(appointment){
+                return res.json({status:true,message:"DELETE SUCCESSFULLY"});
+            }
+            else{
+                return res.json({status:false,message:"DATA NOT DELETE"});
+            }
+            
+    
+            
+        } catch (error) {
+            console.log(error);
+            res.json({status:false,message:"delete appointment error"});
+            
+            
+        }
 
 }
 export {Bookappointment,Getappointment,Deleteappointment}
