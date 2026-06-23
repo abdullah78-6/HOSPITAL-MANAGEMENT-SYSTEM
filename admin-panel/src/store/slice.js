@@ -22,9 +22,27 @@ const adminslice=createSlice({
             department_doctor:"",
             department_details:""
         },
-        Illlist:[],Dlist:[],storeid:null,appointment:[],contact:[]
+        Illlist:[],Dlist:[],storeid:null,appointment:[],contact:[],
+        totalpatient:0,
+        totalregesterpeople:0,
+        totaldoctors:0,
+        totalappointments:0
     },
     reducers:{
+        settotalpatient(state,action){
+            state.totalpatient=action.payload;
+        },
+        settotalregesterpeople(state,action){
+            state.totalregesterpeople=action.payload;
+        },
+        settotaldoctors(state,action){
+            state.totaldoctors=action.payload;
+        },
+        settotalappointments(state,action){
+            state.totalappointments=action.payload;
+        },
+
+
         setloginstatus(state,action){
             state.loginstatus=action.payload;
         },

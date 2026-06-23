@@ -1,4 +1,7 @@
 import patientmodel from "../models/add-patient-model.js";
+import appointmentmodel from "../models/appointment-model.js";
+import departmentmodel from "../models/department-model.js";
+import usermodel from "../models/user-auth-model.js";
 const Add=async(req,res)=>{
     const {patientdetails}=req.body;
     try {
@@ -62,4 +65,20 @@ const Get=async(req,res)=>{
     }
 
 }
-export{Add,Deletepatient,Get}
+const Dashboard=async(req,res)=>{
+        try {
+            const totalpatient=await patientmodel.find({}).countDocuments();
+            const totalappointment=await appointmentmodel.find({}).countDocuments();
+            const regesterpeople=await usermodel.find({}).countDocuments();
+            const totaldoctors=await departmentmodel.find({}).countDocuments();
+            res.json({status:true,totalpatient:totalpatient,totalappointment:totalappointment,regesterpeople:regesterpeople,totaldoctors:totaldoctors});
+            
+        } catch (error) {
+            console.log("dashboard error ",error);
+            res.json({status:false,message:"dashboard error"});
+            
+        }
+        
+
+    }
+export{Add,Deletepatient,Get,Dashboard}

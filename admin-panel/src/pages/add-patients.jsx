@@ -41,7 +41,7 @@ const Addpatient=({url})=>{
 
     }
     return <div className="min-h-screen bg-gray-100 w-full    flex justify-center items-center px-4 py-8 capitalize font-semibold text-xl">
-        <div className="flex justify-center items-center shadow-2xl bg-white p-6 rounded-4xl px-19">
+        <div className="flex justify-center items-center shadow-2xl bg-white p-6 rounded-4xl px-10 md:px-19 lg:px-19 xl:px-19">
             <form onSubmit={Admitpatient}  className="space-y-6 flex flex-col justify-center items-center text-center">
                 <div className="flex flex-col items-center justify-center text-center">
                     <label className="block mb-2 font-medium text-gray-700" htmlFor="name">enter-name</label>

@@ -49,7 +49,7 @@ const Sidebar=({url})=>{
 
     }
     
-    return <div className="bg-[#618764] w-64 min-h-screen text-[#273338] font-semibold overflow-y-auto p-4">
+    return <div className=" hidden xl:block lg:block md:block xl:bg-[#618764] xl:w-64 xl:min-h-screen xl:text-[#273338] xl:font-semibold xl:overflow-y-auto xl:p-4             lg:bg-[#618764] lg:w-64 lg:min-h-screen lg:text-[#273338] lg:font-semibold lg:overflow-y-auto lg:p-4         md:bg-[#618764] md:w-64 md:min-h-screen md:text-[#273338] md:font-semibold md:overflow-y-auto md:p-4">
         <div className="mt-4 bg-white/20 rounded-xl p-4">
   {backendemail && (
     <div className="flex items-center justify-between">

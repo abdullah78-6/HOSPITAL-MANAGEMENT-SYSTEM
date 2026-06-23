@@ -20,7 +20,7 @@ function App() {
      <div className=" flex ">
     <Sidebar url={backendurl}/>
     <Routes>
-      <Route path="/" element={<Dashboard/>}></Route>
+      <Route path="/" element={<Dashboard url={backendurl}/>}></Route>
       <Route path="/add-departments" element={<Adddepartment url={backendurl}/>}></Route>
       <Route path="/appointments" element={<Appointment url={backendurl}/>}></Route>
       <Route path="/add-patients" element={<Addpatient url={backendurl}/>}></Route>
