@@ -12,7 +12,7 @@ import Departmentlist from "./pages/department-list"
 import Enquiries from "./pages/Enquiries"
 function App() {
   const loginstatus=useSelector(state=>state.main.loginstatus);
-  const backendurl="http://localhost:5000"
+  const backendurl="https://hospital-management-system-server-ufgn.onrender.com"
   return <div>
  
     <Navbar url={backendurl}/>
