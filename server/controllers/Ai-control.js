@@ -3,7 +3,7 @@ const Airesult=async(req,res)=>{
     const {queries}=req.body;
     try {
       const genai=new GoogleGenerativeAI(process.env.GEMNI_API_KEY);
-    const model=genai.getGenerativeModel({model:"gemini-3.5-flash"})
+    const model=genai.getGenerativeModel({model:"gemini-2.5-flash-lite"})
     const prompt=queries;
     const response=await model.generateContent(`
         Give a Ai response In just 3 to 4 lines 
