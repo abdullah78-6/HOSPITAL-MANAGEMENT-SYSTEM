@@ -15,7 +15,7 @@ import About from './components/about.jsx';
 import Services from './components/our services.jsx';
 import Achievement from './components/Achievements.jsx';
 import Chat from './pages/Chatbot.jsx';
-const url="http://localhost:5000";
+const url="https://hospital-management-system-server-ufgn.onrender.com";
 const router=createBrowserRouter([
   
   {
