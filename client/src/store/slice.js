@@ -23,12 +23,17 @@ const userslice=createSlice({
             message:""
 
         },
-        mobilenav:false,Dlist:[]
+        mobilenav:false,Dlist:[],airesponse:"",aiquestions:{
+            queries:""
+        }
         
     },
     reducers:{
     setbackendemail2(state,action){
             state.backendemail2=action.payload;
+        },
+        setairesponse(state,action){
+            state.airesponse=action.payload;
         },
         setmobilenav(state,action){
             state.mobilenav=action.payload;
@@ -36,6 +41,11 @@ const userslice=createSlice({
         setlogininfo2(state,action){
             const {name,value}=action.payload;
             state.logininfo2[name]=value;
+        },
+        setaiquestions(state,action){
+            const {name,value}=action.payload;
+            state.aiquestions[name]=value;
+
         },
         setformtype(state,action){
             state.formtype=action.payload;

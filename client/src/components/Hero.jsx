@@ -12,9 +12,12 @@ const Hero=()=>{
             </div>
             <div>
                 <p className="max-w-2xl leading-relaxed  mt-7 text-xl text-green-800">Manage appointments, patient records, doctors, departments, billing, and healthcare services efficiently with our modern Hospital Management System. Streamline hospital operations while delivering exceptional patient care.</p>
-                <div className="flex gap-8 justify-center items-center mt-5">
+                <div className="flex gap-8 justify-center items-center mt-5 flex-wrap">
                <div className=" text-center">
                 <button onClick={()=>navigate("/appointment")} className="bg-pink-800 p-2 text-white rounded-2xl hover:bg-pink-900 transition ease-in-out duration-200 ">Book Appointment</button>
+                </div>
+                <div className=" text-center">
+                <button onClick={()=>navigate("/ai")} className="bg-pink-800 p-2 px-9 text-white rounded-2xl hover:bg-pink-900 transition ease-in-out duration-200 ">Ask Ai</button>
                 </div>
                 <div className=" text-center ">
                 <button onClick={()=>navigate("/contact")} className="bg-blue-800 p-2 text-white rounded-2xl hover:bg-blue-900 transition ease-in-out duration-200 ">Contact Us</button>

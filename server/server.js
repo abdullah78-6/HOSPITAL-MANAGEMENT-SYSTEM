@@ -9,6 +9,7 @@ import Departmentrouter from "./routes/department-routes.js";
 import Userauthrouter from "./routes/user-auth-routes.js";
 import Appintmentrouter from "./routes/appointment-route.js";
 import contactrouter from "./routes/contact-route.js";
+import Airouter from "./routes/ai-routes.js";
 const app=express();
 app.use(express.json());
 app.use(cors({
@@ -29,6 +30,7 @@ app.use("/api/admin",Departmentrouter);
 app.use("/api/user",Userauthrouter);
 app.use("/api/user",Appintmentrouter);
 app.use("/api/cnt",contactrouter);
+app.use("/api/ai",Airouter);
 await Getdbconnection();
 const port=process.env.PORT;
 app.listen(port,()=>{
