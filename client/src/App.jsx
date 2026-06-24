@@ -6,7 +6,7 @@ import Departments from "./pages/Department";
 import Signup from "./pages/Signuppage"
 import {Routes,Route, Outlet} from "react-router-dom"
 function App() {
-  const url="http://localhost:5000";
+  const url="https://hospital-management-system-server-ufgn.onrender.com";
   return <div>
     <Navbar url={url}/>
        <Outlet/>
