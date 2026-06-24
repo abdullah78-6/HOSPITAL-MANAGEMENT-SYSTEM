@@ -14,8 +14,8 @@ const app=express();
 app.use(express.json());
 app.use(cors({
     origin:[
-        "http://localhost:5173",
-        "http://localhost:5174"
+        "https://hospital-management-system-admin-panel-kvi6.onrender.com",
+        "https://hospital-management-system-frontend-f3mz.onrender.com"
     ],
     credentials:true
 }));
