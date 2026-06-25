@@ -1,5 +1,5 @@
 import contactmodel from "../models/contact-model.js";
-import transporter from "../utils/transporter.js";
+//import transporter from "../utils/transporter.js";
 import nodemailer from "nodemailer"
 import  {Resend} from "resend";
 const resend=new Resend(process.env.RESEND_KEY);
