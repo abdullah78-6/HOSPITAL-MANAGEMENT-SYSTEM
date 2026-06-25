@@ -40,8 +40,7 @@ const Departments=({url})=>{
 
     <div className="h-[95vh] overflow-y-auto pr-2 mt-5 bg-gray-100 ">
                 <div className="flex justify-between items-center  gap-5 flex-col flex-wrap font-semibold">
-                    {Dlist.map((index,i)=>(
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-4" key={index._id}>
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-4" >
   {Dlist.map((index, i) => (
     <div
       key={index._id}
@@ -86,7 +85,7 @@ const Departments=({url})=>{
         
       </div>
     </div>
-  ))}
+  
 </div>
                 
 
